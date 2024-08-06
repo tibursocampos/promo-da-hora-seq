@@ -1,11 +1,12 @@
 # Use uma versão específica do Ubuntu para estabilidade
 FROM ubuntu:22.04
 
-# Instale dependências necessárias
+# Instale dependências necessárias, incluindo libicu
 RUN apt-get update && apt-get install -y \
     curl \
     libunwind8 \
     libssl-dev \
+    libicu-dev \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
