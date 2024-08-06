@@ -22,10 +22,18 @@ RUN curl -L https://github.com/datalust/seqcli/releases/download/v2024.3.873/seq
 # Defina o diretório de trabalho
 WORKDIR /seqsvr
 
-# Defina as permissões necessárias (Ajuste o nome do arquivo se necessário)
+# Defina as permissões necessárias
 RUN chmod +x seqcli-2024.3.873-linux-x64/seqcli
+
+# Exponha a porta 5341 para comunicação com o Seq server
+EXPOSE 5341
 
 # Comando para iniciar o Seq CLI
 ENTRYPOINT ["/seqsvr/seqcli-2024.3.873-linux-x64/seqcli"]
-# Defina o comando padrão ou passe um comando específico
+
+# Comando padrão para executar logs, você pode substituir por outro comando conforme necessário
 CMD ["log"]
+
+# Adicione uma instrução para verificar a conectividade com o Seq server
+RUN echo "Verificando conectividade com o Seq server..." && \
+    curl -v http://localhost:5341 || true
