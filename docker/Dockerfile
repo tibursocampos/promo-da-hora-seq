@@ -9,6 +9,10 @@ RUN apt-get update && apt-get install -y \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
+# Verifique a resolução de DNS para o cdn.datalust.co
+RUN apt-get update && apt-get install -y dnsutils && \
+    nslookup cdn.datalust.co
+
 # Crie um diretório para o Seq
 RUN mkdir -p /seqsvr
 
