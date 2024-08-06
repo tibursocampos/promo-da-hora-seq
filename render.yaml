@@ -8,5 +8,3 @@ services:
         value: Y
       - key: SEQ_FIRSTRUN_ADMINPASSWORD
         value: changeme
-    ports:
-      - port: 5341
