@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  seq:
+    image: datalust/seq:latest
+    environment:
+      - SEQ_FIRSTRUN_ADMINPASSWORD=changeme
+      - ACCEPT_EULA=Y
+    ports:
+      - "5341:80"  # Expondo o Seq na porta 5341 para ser acessado externamente
+    networks:
+      - promo-da-hora-network
+
+networks:
+  promo-da-hora-network:
+    driver: bridge
