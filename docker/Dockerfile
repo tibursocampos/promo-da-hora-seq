@@ -33,7 +33,3 @@ ENTRYPOINT ["/seqsvr/seqcli-2024.3.873-linux-x64/seqcli"]
 
 # Comando padrão para executar logs, você pode substituir por outro comando conforme necessário
 CMD ["log"]
-
-# Adicione uma instrução para verificar a conectividade com o Seq server
-RUN echo "Verificando conectividade com o Seq server..." && \
-    curl -v http://localhost:5341 || true
