@@ -27,4 +27,5 @@ RUN chmod +x seqcli-2024.3.873-linux-x64/seqcli
 
 # Comando para iniciar o Seq CLI
 ENTRYPOINT ["/seqsvr/seqcli-2024.3.873-linux-x64/seqcli"]
-CMD ["--http.port", "80"]
+# Defina o comando padrão ou passe um comando específico
+CMD ["log", "list"]
