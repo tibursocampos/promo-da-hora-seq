@@ -1,11 +1,12 @@
-# Use a imagem base do Ubuntu
-FROM ubuntu:latest
+# Use uma versão específica do Ubuntu para estabilidade
+FROM ubuntu:22.04
 
 # Instale dependências necessárias
 RUN apt-get update && apt-get install -y \
     curl \
     libunwind8 \
-    libssl1.1 \
+    libssl-dev \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 # Crie um diretório para o Seq
